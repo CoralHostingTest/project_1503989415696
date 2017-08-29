@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>lock - Test Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "lock";
+    var mkdocs_page_input_path = "lock.md";
+    var mkdocs_page_url = "/lock/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Test Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API Specification</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../creditcard/">creditcard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">lock</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#the-lock-api">The Lock API</a></li>
+                
+                    <li><a class="toctree-l4" href="#resources">Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#types">Types</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../passcode/">passcode</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tos/">tos</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../transaction/">transaction</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../wallet/">wallet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apex_reserved_swaggerui/">Swagger UI</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Test Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API Specification &raquo;</li>
+        
+      
+    
+    <li>lock</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-lock-api">The Lock API</h1>
+<p>This API has the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespace</td>
+<td>com.yahoo.ecosystem.mobile_payment.parsec</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resources">Resources</h2>
+<h3 id="mpnullresult"><a href="#MpNullResult">MpNullResult</a></h3>
+<h4 id="delete-locks">DELETE /locks</h4>
+<p>The API to delete all locks for qa testing</p>
+<h4 id="request-parameters">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>policy</td>
+<td><a href="#mplockpolicy">MpLockPolicy</a></td>
+<td>query: policy</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>duration</td>
+<td><a href="#mplockduration">MpLockDuration</a></td>
+<td>query: duration</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>The user given wrong format of lock.</td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>The user not login.</td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>Invalid wssid or user not in whitelist.</td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>The system have error.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types</h2>
+<h3 id="parsecerrordetail"><a name="ParsecErrorDetail"></a> ParsecErrorDetail</h3>
+<p>DO NOT MODIFY This file is for who want to use ParsecResourceError as error
+layout. But the structure here is only a reminder for user. It will not be
+parsed by Parsec. Change this file will not affect the implementation of
+ParsecResourceError. If you want to change the error layout of api end point,
+you can customize your own error layout class.</p>
+<p><code>ParsecErrorDetail</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalidValue</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parsecerrorbody"><a name="ParsecErrorBody"></a> ParsecErrorBody</h3>
+<p>Parsec error response entity object</p>
+<p><code>ParsecErrorBody</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>Int32</td>
+<td></td>
+<td>error code</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+<td>error message</td>
+<td></td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Array&lt;<a href="#parsecerrordetail">ParsecErrorDetail</a>&gt;</td>
+<td></td>
+<td>error detail</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parsecresourceerror"><a name="ParsecResourceError"></a> ParsecResourceError</h3>
+<p>This error model is designed for following EC REST API Convention (yo/ecrest)</p>
+<p><code>ParsecResourceError</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td><a href="#parsecerrorbody">ParsecErrorBody</a></td>
+<td></td>
+<td>error object</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpnullresult_1"><a name="MpNullResult"></a> MpNullResult</h3>
+<p>The object is just for no content</p>
+<p><code>MpNullResult</code> is a <code>Struct</code> with no specified fields</p>
+<h3 id="mpcheckresult"><a name="MpCheckResult"></a> MpCheckResult</h3>
+<p>The object is for creditCardAuth &amp; passCode check result</p>
+<p><code>MpCheckResult</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isValid</td>
+<td>Bool</td>
+<td></td>
+<td>True if credit card number or passcode is valid, false if not.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="datetime"><a name="DateTime"></a> DateTime</h3>
+<p>ISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6
+e.g.2013-03-06T11:00:00Z</p>
+<p><code>DateTime</code> is a <code>String</code> type.</p>
+<h3 id="guid"><a name="GUID"></a> GUID</h3>
+<p>Yahoo global uniq id</p>
+<p><code>GUID</code> is an alias of type <code>String</code></p>
+<h3 id="mplockpolicy"><a name="MpLockPolicy"></a> MpLockPolicy</h3>
+<p>lock policy</p>
+<p><code>MpLockPolicy</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQUEST_TOKEN</td>
+<td></td>
+</tr>
+<tr>
+<td>RESET_BY_PASSCODE</td>
+<td></td>
+</tr>
+<tr>
+<td>RESET_BY_CARD_NUMBER</td>
+<td></td>
+</tr>
+<tr>
+<td>VERIFY_CREDIT_CARD</td>
+<td></td>
+</tr>
+<tr>
+<td>CHECK_PASSCODE</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mplockduration"><a name="MpLockDuration"></a> MpLockDuration</h3>
+<p>lock duration</p>
+<p><code>MpLockDuration</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DURATION_10_MINS</td>
+<td></td>
+</tr>
+<tr>
+<td>DURATION_1_HOURS</td>
+<td></td>
+</tr>
+<tr>
+<td>DURATION_24_HOURS</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://git.corp.yahoo.com/pages/ApexTest/Swagger-UI/parsec/swagger-ui/?url=https://git.corp.yahoo.com/pages/ApexTest/project_1503989415696/swagger-json/lock_swagger.json">Swagger URL</a></p>
+              
+            </div>
+          </div>
+          <!--
+custom blank footer
+-->
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../creditcard/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../passcode/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

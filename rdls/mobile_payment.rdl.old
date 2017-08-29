@@ -1,0 +1,430 @@
+// Parsec error detail object
+type ParsecErrorDetail Struct {
+  // error message
+  String message;
+
+  // invalid value
+  String invalidValue;
+}
+
+// Parsec error response entity object
+type ParsecErrorBody Struct {
+  // error code
+  String code;
+
+  // error summary message
+  String message;
+
+  // error details
+  Array<ParsecErrorDetail> detail;
+}
+
+// This error model is designed for keeping the error response consistency between Parsec and validator.
+type ParsecResourceError Struct {
+  // error object
+  ParsecErrorBody error;
+}
+
+// ISO 8601
+// ref: http://tools.ietf.org/html/rfc3339#section-5.6
+// e.g.2013-03-06T11:00:00Z
+type DateTime String //TODO: fix dependency for (x_date_time)
+
+// Credit card number user input.
+type CreditCard Struct {
+    // credit card number
+    String cardNumber (x_not_null, x_size="min=15,max=16");
+}
+
+type CreditCardAuthCheckResult struct {
+    Bool authed;
+}
+
+resource CreditCardAuthCheckResult GET "/creditCards/hasAuth" {
+
+    // authenticate ytcookie & wssid
+    authenticate
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+type CreditCardAuthResult struct {
+    Bool success;
+}
+
+type CreditCardAuthRequest struct {
+    String cardId;
+    String cvv2;
+}
+
+resource CreditCardAuthResult POST "/creditCards/auth" {
+    CreditCardAuthRequest authRequest
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected CREATED;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+type CreditCardAuthInfo struct {
+    String cardId
+    Bool authed
+}
+
+type CreditCardAuthInfoCollection struct {
+    Array<CreditCardAuthInfo> authInfoCollection;
+}
+
+resource CreditCardAuthInfoCollection GET "/creditCards/authInfo?cardIds={cardIds}" {
+    // Card id list, seperated by comma.
+    String cardIds
+    CreditCardAuthInfoCollection creditcardCollection
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Credit card check result.
+type CheckCreditCardResult struct {
+    // True if credit card number is valid, false if not.
+    Bool isValid;
+}
+
+// Check credit card number has set in bastet and ccv verified.
+resource CheckCreditCardResult POST "/creditCards/checkCardNumber" {
+    // The credit card number user input.
+    CreditCard creditCardNumber;
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+type PasscodeSetResult struct {
+    // indicate passcode set success or fail.
+    Bool success
+}
+
+// passcode
+type Passcode Struct {
+    // passcode string.
+    String passcode (x_required);
+}
+
+// The API give user setup 1st passcode
+resource PasscodeSetResult POST "/passcodes" {
+    // user enter the passcode
+    Passcode passcode (x_required);
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected CREATED;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR; // The system have error.
+        ParsecResourceError BAD_REQUEST;           // The user given wrong format of passcode or passcode have already setup.
+        ParsecResourceError UNAUTHORIZED;          // The user not login.
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Support reset by old passcode or card number.
+type ResetType Enum {
+
+    // indicate reset by passcode.
+    BY_PASSCODE
+
+    // indicate reset by card number.
+    BY_CARD_NUMBER
+}
+
+type ResetData Struct {
+    // required if ResetType is BY_CARD_NUMBER.
+    String cardNumber
+
+    // required if ResetType is BY_PASSCODE.
+    String oldPasscode
+
+    // The new passcode for reset.
+    String newPasscode
+}
+
+// Reset passcode by given old passcode or authorized card number
+resource PasscodeSetResult PUT "/passcodes?resetType={resetType}" {
+    // indicate reset by "old passcode" or "card number".
+    ResetType resetType
+    // Reset data user given.
+    ResetData resetData
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    // indicate reset passcode success
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// pass code check result
+type PasscodeCheckResult struct {
+    // True if pass code check is valid, or false if not
+    Bool isValid
+}
+
+// Given passcode to check match user's passcode or not
+resource PasscodeCheckResult POST "/passcodes/check" {
+    // The passcode user given
+    Passcode passcode;
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// indicate passcode exist or not
+type PasscodeExistResult struct {
+    // true if exist, false if not.
+    Bool isExist;
+}
+
+// Check the user have set passcode or not.
+resource PasscodeExistResult GET "/passcodes/exist" {
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Token data.
+type Token struct {
+    // Token value.
+    String tokenValue
+    // Token expire time.
+    DateTime expire
+}
+
+// Token request.
+type RequestToken struct {
+    // The user's passcode.
+    String passCode
+    // The credit card id in bastet for payment.
+    String cardId
+}
+
+// Generate token for mobile payment.
+resource Token POST "/tokens" {
+    // Token request data.
+    RequestToken requestToken
+
+    authenticate; // authenticate by ytcookie & wssid
+    expected CREATED;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Yahoo global uniq id
+type GUID String
+
+type TransactionType enum {
+  PAY
+  REFUND
+}
+
+type PaymentType enum {
+  CREDIT_CARD_TOKEN
+}
+
+type TransStatus enum {
+  NOT_PAID
+  PAID_OK
+  PAY_FAILED
+  CANCELLED
+  INVALID
+}
+
+type RefundStatus enum {
+  INIT
+  DONE
+  CANCELLED
+}
+
+type ApplyPointStatus enum {
+  TO_BE_APPLIED
+  APPLIED
+}
+
+type SortOrder enum {
+  // ascending order
+  ASC
+  // descending order
+  DESC
+}
+
+type Transaction struct {
+  String id                   (x_not_null)
+  TransactionType transType   (x_not_null)
+  PaymentType payType         (x_not_null)
+  GUID buyerId                (x_not_null)
+  String ccode                (x_not_null, x_country_code)
+  String amount               (x_not_null, x_digits="integer=13, fraction=2")
+  String currency             (x_not_null, x_currency)
+  String realAmount           (x_not_null, x_digits="integer=13, fraction=2")
+  String usedPoints           (optional)
+  String summary              (optional)
+  String detail               (optional)
+  TransStatus status          (x_not_null)
+  String partnerOrderId       (optional)
+  DateTime date               (x_not_null)
+  DateTime cancelDate         (optional)
+  String mpPartnerId            (x_not_null)
+  String partnerTxSeq
+  String merchantId           (x_not_empty, x_size="min=1, max=10")
+  String merchantName         (x_not_empty, x_size="min=1, max=200")
+  String merchantTxSeq        (x_not_empty, x_size="min=1, max=60")
+  DateTime merchantTxTime     (x_not_null)
+  String storeId              (optional)
+  String storeName            (optional)
+  String creditCardId         (x_not_null)
+  String ccFirst4Digits
+  String ccLast6Digits
+  Int32  ccSubType
+  String ccUserName
+  String latlong
+  RefundStatus refundStatus
+  ApplyPointStatus applyPointStatus
+  DateTime paidDate
+  DateTime createTime
+  DateTime modifyTime
+}
+
+type TransactionCollection struct {
+  // A list of transaction
+  array<Transaction> transactions;
+
+  // Number of transactions returned
+  int32 totalResults;
+
+  // If there is more result, the nextOffset can pass to next query
+  int32 nextOffset;
+}
+
+// list transactions belong to the user
+resource TransactionCollection GET "/transactions?count={count}&offset={offset}&startTime={startTime}&endTime={endTime}&sortBy={sortBy}&sortOrder={sortOrder}" {
+
+  // Number of items to return.
+  int32 count         (optional)
+
+  // Offset of items of results.
+  int32 offset        (optional)
+
+  // Resource create time as the start range.
+  DateTime startTime  (optional)
+
+  // Resource create time as the end range.
+  DateTime endTime    (optional)
+
+  // sort by specific field, only support createTime for now
+  String sortBy       (optional)
+
+  // Sort based on order of results.
+  SortOrder sortOrder (optional)
+
+  // Show summary txns or full detail txns, default is summary
+  Bool isDetail       (optional)
+
+  // ytcookie auth
+  authenticate
+
+  expected OK
+  exceptions {
+      ParsecResourceError INTERNAL_SERVER_ERROR
+      ParsecResourceError BAD_REQUEST
+      ParsecResourceError UNAUTHORIZED
+      ParsecResourceError FORBIDDEN
+      ParsecResourceError NOT_FOUND
+  }
+}
+
+resource Transaction GET "/transactions/{transactionId}" {
+  // The transaction id
+  String transactionId
+
+  authenticate
+  expected OK
+  exceptions {
+      ParsecResourceError INTERNAL_SERVER_ERROR
+      ParsecResourceError BAD_REQUEST
+      ParsecResourceError UNAUTHORIZED
+      ParsecResourceError FORBIDDEN
+      ParsecResourceError NOT_FOUND
+  }
+}
+
+// wssid data
+type WSSID struct {
+    // The wssid value.
+    String wssidValue
+    // The wssid expire time.
+    DateTime expire
+}
+
+// Get wssid for following requests
+resource WSSID GET "/wssids" {
+    // ytcookie auth
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}

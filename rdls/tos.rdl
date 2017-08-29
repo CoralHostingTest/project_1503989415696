@@ -1,0 +1,63 @@
+namespace com.yahoo.ecosystem.mobile_payment.parsec
+name Tos
+version 1
+base "/mobilePayment"
+
+include "ParsecResourceError.rdli"
+include "common.rdli"
+
+// tos
+type MpTos Struct {
+    // datetime string.
+    DateTime agreeTime
+
+    // the tos is valid or not
+    Bool isValid
+}
+
+// The API give user update tos
+resource MpNullResult PUT "/toses" (name=setTos) {
+    // user enter the tos, just input empty object
+    MpTos tos
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR; // The system have error.
+        ParsecResourceError BAD_REQUEST;           // The user given wrong format of tos or tos have already setup.
+        ParsecResourceError UNAUTHORIZED;          // The user not login.
+        ParsecResourceError FORBIDDEN;             // Invalid wssid.
+    }
+}
+
+// Get tos belong to the user
+resource MpTos GET "/toses" (name=getTos) {
+
+  // ytcookie auth
+  authenticate
+
+  expected OK
+  exceptions {
+      ParsecResourceError INTERNAL_SERVER_ERROR; // The system have error.
+      ParsecResourceError BAD_REQUEST;           //
+      ParsecResourceError UNAUTHORIZED;          // The user not login.
+      ParsecResourceError FORBIDDEN              // Invalid wssid.
+  }
+}
+
+// The API delete all toses of a user for qa testing
+resource MpNullResult DELETE "/toses" (name=deleteTos) {
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR; // The system have error.
+        ParsecResourceError BAD_REQUEST;           // The user given wrong format of tos or tos have already setup.
+        ParsecResourceError UNAUTHORIZED;          // The user not login.
+        ParsecResourceError FORBIDDEN;             // Invalid wssid or user not in whitelist.
+    }
+}

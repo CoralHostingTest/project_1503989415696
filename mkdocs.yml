@@ -1,0 +1,17 @@
+site_name: Test Project
+pages:
+    - "Home": index.md
+    - "API Specification":
+        - "creditcard": creditcard.md
+        - "lock": lock.md
+        - "passcode": passcode.md
+        - "tos": tos.md
+        - "transaction": transaction.md
+        - "wallet": wallet.md
+        - "Swagger UI": apex_reserved_swaggerui.md
+theme: readthedocs
+theme_dir: theme
+markdown_extensions:
+    - admonition
+    - def_list
+    - grid_tables

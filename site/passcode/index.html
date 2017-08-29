@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>passcode - Test Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "passcode";
+    var mkdocs_page_input_path = "passcode.md";
+    var mkdocs_page_url = "/passcode/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Test Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API Specification</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../creditcard/">creditcard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lock/">lock</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">passcode</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#the-passcode-api">The Passcode API</a></li>
+                
+                    <li><a class="toctree-l4" href="#resources">Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#types">Types</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tos/">tos</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../transaction/">transaction</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../wallet/">wallet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apex_reserved_swaggerui/">Swagger UI</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Test Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API Specification &raquo;</li>
+        
+      
+    
+    <li>passcode</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-passcode-api">The Passcode API</h1>
+<p>This API has the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespace</td>
+<td>com.yahoo.ecosystem.mobile_payment.parsec</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resources">Resources</h2>
+<h3 id="mpnullresult"><a href="#MpNullResult">MpNullResult</a></h3>
+<h4 id="post-passcodes">POST /passcodes</h4>
+<p>The API give user setup 1st passcode</p>
+<h4 id="request-parameters">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passcode</td>
+<td><a href="#mppasscode">MpPasscode</a></td>
+<td>body</td>
+<td></td>
+<td>user enter the passcode</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>The user given wrong format of passcode or passcode have already setup.</td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>The user not login.</td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td>The system have error.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="put-passcodes">PUT /passcodes</h4>
+<p>Reset passcode by given old passcode or authorized card number</p>
+<h4 id="request-parameters_1">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resetData</td>
+<td><a href="#mpresetdata">MpResetData</a></td>
+<td>body</td>
+<td></td>
+<td>Reset data user given.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses_1">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="get-passcodes">GET /passcodes</h4>
+<p>Check the user have set passcode or not.</p>
+<h4 id="responses_2">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="delete-passcodes">DELETE /passcodes</h4>
+<p>Check the user and its passcode.</p>
+<h4 id="responses_3">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpcheckresult"><a href="#MpCheckResult">MpCheckResult</a></h3>
+<h4 id="post-passcodescheck">POST /passcodes/check</h4>
+<p>Given passcode to check match user's passcode or not</p>
+<h4 id="request-parameters_2">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passcode</td>
+<td><a href="#mppasscode">MpPasscode</a></td>
+<td>body</td>
+<td></td>
+<td>The passcode user given</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses_4">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200 OK</td>
+<td>MpCheckResult</td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types</h2>
+<h3 id="parsecerrordetail"><a name="ParsecErrorDetail"></a> ParsecErrorDetail</h3>
+<p>DO NOT MODIFY This file is for who want to use ParsecResourceError as error
+layout. But the structure here is only a reminder for user. It will not be
+parsed by Parsec. Change this file will not affect the implementation of
+ParsecResourceError. If you want to change the error layout of api end point,
+you can customize your own error layout class.</p>
+<p><code>ParsecErrorDetail</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalidValue</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parsecerrorbody"><a name="ParsecErrorBody"></a> ParsecErrorBody</h3>
+<p>Parsec error response entity object</p>
+<p><code>ParsecErrorBody</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>Int32</td>
+<td></td>
+<td>error code</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+<td>error message</td>
+<td></td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Array&lt;<a href="#parsecerrordetail">ParsecErrorDetail</a>&gt;</td>
+<td></td>
+<td>error detail</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parsecresourceerror"><a name="ParsecResourceError"></a> ParsecResourceError</h3>
+<p>This error model is designed for following EC REST API Convention (yo/ecrest)</p>
+<p><code>ParsecResourceError</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td><a href="#parsecerrorbody">ParsecErrorBody</a></td>
+<td></td>
+<td>error object</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpnullresult_1"><a name="MpNullResult"></a> MpNullResult</h3>
+<p>The object is just for no content</p>
+<p><code>MpNullResult</code> is a <code>Struct</code> with no specified fields</p>
+<h3 id="mpcheckresult_1"><a name="MpCheckResult"></a> MpCheckResult</h3>
+<p>The object is for creditCardAuth &amp; passCode check result</p>
+<p><code>MpCheckResult</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isValid</td>
+<td>Bool</td>
+<td></td>
+<td>True if credit card number or passcode is valid, false if not.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="datetime"><a name="DateTime"></a> DateTime</h3>
+<p>ISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6
+e.g.2013-03-06T11:00:00Z</p>
+<p><code>DateTime</code> is a <code>String</code> type.</p>
+<h3 id="guid"><a name="GUID"></a> GUID</h3>
+<p>Yahoo global uniq id</p>
+<p><code>GUID</code> is an alias of type <code>String</code></p>
+<h3 id="mpresettype"><a name="MpResetType"></a> MpResetType</h3>
+<p>Support reset by old passcode or card number.</p>
+<p><code>MpResetType</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BY_PASSCODE</td>
+<td>indicate reset by passcode. indicate reset by card number.</td>
+</tr>
+<tr>
+<td>BY_CARD_NUMBER</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpresetdata"><a name="MpResetData"></a> MpResetData</h3>
+<p>The reset data for passcode.</p>
+<p><code>MpResetData</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resetType</td>
+<td><a href="#mpresettype">MpResetType</a></td>
+<td></td>
+<td>indicate reset by "old passcode" or "card number".</td>
+<td></td>
+</tr>
+<tr>
+<td>cardNumber</td>
+<td>String</td>
+<td></td>
+<td>required if ResetType is BY_CARD_NUMBER.</td>
+<td></td>
+</tr>
+<tr>
+<td>oldPasscode</td>
+<td>String</td>
+<td></td>
+<td>required if ResetType is BY_PASSCODE.</td>
+<td></td>
+</tr>
+<tr>
+<td>newPasscode</td>
+<td>String</td>
+<td></td>
+<td>The new passcode for reset.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mppasscode"><a name="MpPasscode"></a> MpPasscode</h3>
+<p>passcode</p>
+<p><code>MpPasscode</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passcode</td>
+<td>String</td>
+<td></td>
+<td>passcode string.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://git.corp.yahoo.com/pages/ApexTest/Swagger-UI/parsec/swagger-ui/?url=https://git.corp.yahoo.com/pages/ApexTest/project_1503989415696/swagger-json/passcode_swagger.json">Swagger URL</a></p>
+              
+            </div>
+          </div>
+          <!--
+custom blank footer
+-->
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lock/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tos/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,494 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to Project XXX docs\n\n\nThis is auto generated homepage", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-project-xxx-docs", 
+            "text": "This is auto generated homepage", 
+            "title": "Welcome to Project XXX docs"
+        }, 
+        {
+            "location": "/creditcard/", 
+            "text": "The CreditCardAuth API\n\n\nThis API has the following attributes:\n\n\n\n\n\n\n\n\nAttribute\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nnamespace\n\n\ncom.yahoo.ecosystem.mobile_payment.parsec\n\n\n\n\n\n\nversion\n\n\n1\n\n\n\n\n\n\n\n\nResources\n\n\nMpNullResult\n\n\nPOST /creditCardAuths\n\n\nAuthorize a card by ssl\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncreditCardAuth\n\n\nMpCreditCardAuth\n\n\nbody\n\n\n\n\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nPOST /creditCard3dAuthsResult\n\n\n3D authorize callback to set result from CCP\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncreditCardAuthResult\n\n\nMpCreditCardAuthResult\n\n\nbody\n\n\n\n\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpNullResult\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nDELETE /creditCardAuths\n\n\nDelete the transactions of user.\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nCreditCardAuthResult\n\n\nPOST /creditCard3dAuths\n\n\nAuthorize a card by 3d\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncreditCardAuth\n\n\nMpCreditCardAuth\n\n\nbody\n\n\n\n\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nCreditCardAuthResult\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nMpCreditCardAuthCollection\n\n\nGET /creditCardAuths\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\noffset\n\n\nint32\n\n\nquery: offset\n\n\noptional\n\n\nOffset of items of results.\n\n\n\n\n\n\ncount\n\n\nint32\n\n\nquery: count\n\n\noptional\n\n\nNumber of items to return.\n\n\n\n\n\n\nsync\n\n\nBool\n\n\nquery: sync\n\n\noptional, default=false\n\n\nSync with bastet or not, only support if count = 0\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpCreditCardAuthCollection\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nMpCheckResult\n\n\nPOST /creditCardAuths/checkByCardNumber\n\n\nCheck credit card number has set in bastet and ccv verified.\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncreditCardAuth\n\n\nMpCreditCardAuth\n\n\nbody\n\n\n\n\nThe credit card number user input.\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpCheckResult\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nTypes\n\n\n ParsecErrorDetail\n\n\nDO NOT MODIFY This file is for who want to use ParsecResourceError as error\nlayout. But the structure here is only a reminder for user. It will not be\nparsed by Parsec. Change this file will not affect the implementation of\nParsecResourceError. If you want to change the error layout of api end point,\nyou can customize your own error layout class.\n\n\nParsecErrorDetail\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ninvalidValue\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ParsecErrorBody\n\n\nParsec error response entity object\n\n\nParsecErrorBody\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncode\n\n\nInt32\n\n\n\n\nerror code\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\nerror message\n\n\n\n\n\n\n\n\ndetail\n\n\nArray\nParsecErrorDetail\n\n\n\n\nerror detail\n\n\n\n\n\n\n\n\n\n\n ParsecResourceError\n\n\nThis error model is designed for following EC REST API Convention (yo/ecrest)\n\n\nParsecResourceError\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nerror\n\n\nParsecErrorBody\n\n\n\n\nerror object\n\n\n\n\n\n\n\n\n\n\n MpNullResult\n\n\nThe object is just for no content\n\n\nMpNullResult\n is a \nStruct\n with no specified fields\n\n\n MpCheckResult\n\n\nThe object is for creditCardAuth \n passCode check result\n\n\nMpCheckResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nisValid\n\n\nBool\n\n\n\n\nTrue if credit card number or passcode is valid, false if not.\n\n\n\n\n\n\n\n\n\n\n DateTime\n\n\nISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6\ne.g.2013-03-06T11:00:00Z\n\n\nDateTime\n is a \nString\n type.\n\n\n GUID\n\n\nYahoo global uniq id\n\n\nGUID\n is an alias of type \nString\n\n\n MpCreditCardAuth\n\n\nMpCreditCardAuth\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncardId\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ncvv2\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\npasscode\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ncardNumber\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n CreditCardAuthResult\n\n\nCreditCardAuthResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nsupport3d\n\n\nBool\n\n\n\n\nis the card support 3d?\n\n\n\n\n\n\n\n\nretCode\n\n\nInt32\n\n\n\n\n\n\n\n\n\n\n\n\nsuccess\n\n\nBool\n\n\noptional\n\n\nnot support 3D, will return SSL auth result directly.\n\n\n\n\n\n\n\n\ncreditCardAuthId\n\n\nString\n\n\noptional\n\n\nsupport 3D, redirect to 3d auth page.\n\n\n\n\n\n\n\n\naccessUrl\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\n\n\n MpCreditCardAuthResult\n\n\nMpCreditCardAuthResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\npayment_session_id\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nplatform_id\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nbill_id\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n MpCreditCardAuthCollection\n\n\nMpCreditCardAuthCollection\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncreditCardAuths\n\n\nArray\nMpCreditCardAuth\n\n\n\n\n\n\n\n\n\n\n\n\ntotalResults\n\n\nInt32\n\n\n\n\nNumber of creditCardAuth returned\n\n\n\n\n\n\n\n\nnextOffset\n\n\nInt32\n\n\n\n\nIf there is more result, the nextOffset can pass to next query, return -1 if no offset anymore\n\n\n\n\n\n\n\n\n\n\nSwagger URL", 
+            "title": "creditcard"
+        }, 
+        {
+            "location": "/creditcard/#the-creditcardauth-api", 
+            "text": "This API has the following attributes:     Attribute  Value      namespace  com.yahoo.ecosystem.mobile_payment.parsec    version  1", 
+            "title": "The CreditCardAuth API"
+        }, 
+        {
+            "location": "/creditcard/#resources", 
+            "text": "", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/creditcard/#mpnullresult", 
+            "text": "", 
+            "title": "MpNullResult"
+        }, 
+        {
+            "location": "/creditcard/#post-creditcardauths", 
+            "text": "Authorize a card by ssl", 
+            "title": "POST /creditCardAuths"
+        }, 
+        {
+            "location": "/creditcard/#request-parameters", 
+            "text": "Name  Type  Source  Options  Description      creditCardAuth  MpCreditCardAuth  body", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/creditcard/#responses", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/creditcard/#post-creditcard3dauthsresult", 
+            "text": "3D authorize callback to set result from CCP", 
+            "title": "POST /creditCard3dAuthsResult"
+        }, 
+        {
+            "location": "/creditcard/#request-parameters_1", 
+            "text": "Name  Type  Source  Options  Description      creditCardAuthResult  MpCreditCardAuthResult  body", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/creditcard/#responses_1", 
+            "text": "Expected:     Code  Type      200 OK  MpNullResult     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/creditcard/#delete-creditcardauths", 
+            "text": "Delete the transactions of user.", 
+            "title": "DELETE /creditCardAuths"
+        }, 
+        {
+            "location": "/creditcard/#responses_2", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/creditcard/#creditcardauthresult", 
+            "text": "", 
+            "title": "CreditCardAuthResult"
+        }, 
+        {
+            "location": "/creditcard/#post-creditcard3dauths", 
+            "text": "Authorize a card by 3d", 
+            "title": "POST /creditCard3dAuths"
+        }, 
+        {
+            "location": "/creditcard/#request-parameters_2", 
+            "text": "Name  Type  Source  Options  Description      creditCardAuth  MpCreditCardAuth  body", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/creditcard/#responses_3", 
+            "text": "Expected:     Code  Type      200 OK  CreditCardAuthResult     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/creditcard/#mpcreditcardauthcollection", 
+            "text": "", 
+            "title": "MpCreditCardAuthCollection"
+        }, 
+        {
+            "location": "/creditcard/#get-creditcardauths", 
+            "text": "", 
+            "title": "GET /creditCardAuths"
+        }, 
+        {
+            "location": "/creditcard/#request-parameters_3", 
+            "text": "Name  Type  Source  Options  Description      offset  int32  query: offset  optional  Offset of items of results.    count  int32  query: count  optional  Number of items to return.    sync  Bool  query: sync  optional, default=false  Sync with bastet or not, only support if count = 0", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/creditcard/#responses_4", 
+            "text": "Expected:     Code  Type      200 OK  MpCreditCardAuthCollection     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/creditcard/#mpcheckresult", 
+            "text": "", 
+            "title": "MpCheckResult"
+        }, 
+        {
+            "location": "/creditcard/#post-creditcardauthscheckbycardnumber", 
+            "text": "Check credit card number has set in bastet and ccv verified.", 
+            "title": "POST /creditCardAuths/checkByCardNumber"
+        }, 
+        {
+            "location": "/creditcard/#request-parameters_4", 
+            "text": "Name  Type  Source  Options  Description      creditCardAuth  MpCreditCardAuth  body   The credit card number user input.", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/creditcard/#responses_5", 
+            "text": "Expected:     Code  Type      200 OK  MpCheckResult     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/creditcard/#types", 
+            "text": "", 
+            "title": "Types"
+        }, 
+        {
+            "location": "/lock/", 
+            "text": "The Lock API\n\n\nThis API has the following attributes:\n\n\n\n\n\n\n\n\nAttribute\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nnamespace\n\n\ncom.yahoo.ecosystem.mobile_payment.parsec\n\n\n\n\n\n\nversion\n\n\n1\n\n\n\n\n\n\n\n\nResources\n\n\nMpNullResult\n\n\nDELETE /locks\n\n\nThe API to delete all locks for qa testing\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npolicy\n\n\nMpLockPolicy\n\n\nquery: policy\n\n\n\n\n\n\n\n\n\n\nduration\n\n\nMpLockDuration\n\n\nquery: duration\n\n\n\n\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\nThe user given wrong format of lock.\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\nThe user not login.\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\nInvalid wssid or user not in whitelist.\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\nThe system have error.\n\n\n\n\n\n\n\n\nTypes\n\n\n ParsecErrorDetail\n\n\nDO NOT MODIFY This file is for who want to use ParsecResourceError as error\nlayout. But the structure here is only a reminder for user. It will not be\nparsed by Parsec. Change this file will not affect the implementation of\nParsecResourceError. If you want to change the error layout of api end point,\nyou can customize your own error layout class.\n\n\nParsecErrorDetail\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ninvalidValue\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ParsecErrorBody\n\n\nParsec error response entity object\n\n\nParsecErrorBody\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncode\n\n\nInt32\n\n\n\n\nerror code\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\nerror message\n\n\n\n\n\n\n\n\ndetail\n\n\nArray\nParsecErrorDetail\n\n\n\n\nerror detail\n\n\n\n\n\n\n\n\n\n\n ParsecResourceError\n\n\nThis error model is designed for following EC REST API Convention (yo/ecrest)\n\n\nParsecResourceError\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nerror\n\n\nParsecErrorBody\n\n\n\n\nerror object\n\n\n\n\n\n\n\n\n\n\n MpNullResult\n\n\nThe object is just for no content\n\n\nMpNullResult\n is a \nStruct\n with no specified fields\n\n\n MpCheckResult\n\n\nThe object is for creditCardAuth \n passCode check result\n\n\nMpCheckResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nisValid\n\n\nBool\n\n\n\n\nTrue if credit card number or passcode is valid, false if not.\n\n\n\n\n\n\n\n\n\n\n DateTime\n\n\nISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6\ne.g.2013-03-06T11:00:00Z\n\n\nDateTime\n is a \nString\n type.\n\n\n GUID\n\n\nYahoo global uniq id\n\n\nGUID\n is an alias of type \nString\n\n\n MpLockPolicy\n\n\nlock policy\n\n\nMpLockPolicy\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nREQUEST_TOKEN\n\n\n\n\n\n\n\n\nRESET_BY_PASSCODE\n\n\n\n\n\n\n\n\nRESET_BY_CARD_NUMBER\n\n\n\n\n\n\n\n\nVERIFY_CREDIT_CARD\n\n\n\n\n\n\n\n\nCHECK_PASSCODE\n\n\n\n\n\n\n\n\n\n\n MpLockDuration\n\n\nlock duration\n\n\nMpLockDuration\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nDURATION_10_MINS\n\n\n\n\n\n\n\n\nDURATION_1_HOURS\n\n\n\n\n\n\n\n\nDURATION_24_HOURS\n\n\n\n\n\n\n\n\n\n\nSwagger URL", 
+            "title": "lock"
+        }, 
+        {
+            "location": "/lock/#the-lock-api", 
+            "text": "This API has the following attributes:     Attribute  Value      namespace  com.yahoo.ecosystem.mobile_payment.parsec    version  1", 
+            "title": "The Lock API"
+        }, 
+        {
+            "location": "/lock/#resources", 
+            "text": "", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/lock/#mpnullresult", 
+            "text": "", 
+            "title": "MpNullResult"
+        }, 
+        {
+            "location": "/lock/#delete-locks", 
+            "text": "The API to delete all locks for qa testing", 
+            "title": "DELETE /locks"
+        }, 
+        {
+            "location": "/lock/#request-parameters", 
+            "text": "Name  Type  Source  Options  Description      policy  MpLockPolicy  query: policy      duration  MpLockDuration  query: duration", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/lock/#responses", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError  The user given wrong format of lock.    401 Unauthorized  ParsecResourceError  The user not login.    403 Forbidden  ParsecResourceError  Invalid wssid or user not in whitelist.    500 Internal Server Error  ParsecResourceError  The system have error.", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/lock/#types", 
+            "text": "", 
+            "title": "Types"
+        }, 
+        {
+            "location": "/passcode/", 
+            "text": "The Passcode API\n\n\nThis API has the following attributes:\n\n\n\n\n\n\n\n\nAttribute\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nnamespace\n\n\ncom.yahoo.ecosystem.mobile_payment.parsec\n\n\n\n\n\n\nversion\n\n\n1\n\n\n\n\n\n\n\n\nResources\n\n\nMpNullResult\n\n\nPOST /passcodes\n\n\nThe API give user setup 1st passcode\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npasscode\n\n\nMpPasscode\n\n\nbody\n\n\n\n\nuser enter the passcode\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\nThe user given wrong format of passcode or passcode have already setup.\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\nThe user not login.\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\nThe system have error.\n\n\n\n\n\n\n\n\nPUT /passcodes\n\n\nReset passcode by given old passcode or authorized card number\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nresetData\n\n\nMpResetData\n\n\nbody\n\n\n\n\nReset data user given.\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nGET /passcodes\n\n\nCheck the user have set passcode or not.\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n404 Not Found\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nDELETE /passcodes\n\n\nCheck the user and its passcode.\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nMpCheckResult\n\n\nPOST /passcodes/check\n\n\nGiven passcode to check match user's passcode or not\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npasscode\n\n\nMpPasscode\n\n\nbody\n\n\n\n\nThe passcode user given\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpCheckResult\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nTypes\n\n\n ParsecErrorDetail\n\n\nDO NOT MODIFY This file is for who want to use ParsecResourceError as error\nlayout. But the structure here is only a reminder for user. It will not be\nparsed by Parsec. Change this file will not affect the implementation of\nParsecResourceError. If you want to change the error layout of api end point,\nyou can customize your own error layout class.\n\n\nParsecErrorDetail\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ninvalidValue\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ParsecErrorBody\n\n\nParsec error response entity object\n\n\nParsecErrorBody\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncode\n\n\nInt32\n\n\n\n\nerror code\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\nerror message\n\n\n\n\n\n\n\n\ndetail\n\n\nArray\nParsecErrorDetail\n\n\n\n\nerror detail\n\n\n\n\n\n\n\n\n\n\n ParsecResourceError\n\n\nThis error model is designed for following EC REST API Convention (yo/ecrest)\n\n\nParsecResourceError\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nerror\n\n\nParsecErrorBody\n\n\n\n\nerror object\n\n\n\n\n\n\n\n\n\n\n MpNullResult\n\n\nThe object is just for no content\n\n\nMpNullResult\n is a \nStruct\n with no specified fields\n\n\n MpCheckResult\n\n\nThe object is for creditCardAuth \n passCode check result\n\n\nMpCheckResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nisValid\n\n\nBool\n\n\n\n\nTrue if credit card number or passcode is valid, false if not.\n\n\n\n\n\n\n\n\n\n\n DateTime\n\n\nISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6\ne.g.2013-03-06T11:00:00Z\n\n\nDateTime\n is a \nString\n type.\n\n\n GUID\n\n\nYahoo global uniq id\n\n\nGUID\n is an alias of type \nString\n\n\n MpResetType\n\n\nSupport reset by old passcode or card number.\n\n\nMpResetType\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBY_PASSCODE\n\n\nindicate reset by passcode. indicate reset by card number.\n\n\n\n\n\n\nBY_CARD_NUMBER\n\n\n\n\n\n\n\n\n\n\n MpResetData\n\n\nThe reset data for passcode.\n\n\nMpResetData\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nresetType\n\n\nMpResetType\n\n\n\n\nindicate reset by \"old passcode\" or \"card number\".\n\n\n\n\n\n\n\n\ncardNumber\n\n\nString\n\n\n\n\nrequired if ResetType is BY_CARD_NUMBER.\n\n\n\n\n\n\n\n\noldPasscode\n\n\nString\n\n\n\n\nrequired if ResetType is BY_PASSCODE.\n\n\n\n\n\n\n\n\nnewPasscode\n\n\nString\n\n\n\n\nThe new passcode for reset.\n\n\n\n\n\n\n\n\n\n\n MpPasscode\n\n\npasscode\n\n\nMpPasscode\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\npasscode\n\n\nString\n\n\n\n\npasscode string.\n\n\n\n\n\n\n\n\n\n\nSwagger URL", 
+            "title": "passcode"
+        }, 
+        {
+            "location": "/passcode/#the-passcode-api", 
+            "text": "This API has the following attributes:     Attribute  Value      namespace  com.yahoo.ecosystem.mobile_payment.parsec    version  1", 
+            "title": "The Passcode API"
+        }, 
+        {
+            "location": "/passcode/#resources", 
+            "text": "", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/passcode/#mpnullresult", 
+            "text": "", 
+            "title": "MpNullResult"
+        }, 
+        {
+            "location": "/passcode/#post-passcodes", 
+            "text": "The API give user setup 1st passcode", 
+            "title": "POST /passcodes"
+        }, 
+        {
+            "location": "/passcode/#request-parameters", 
+            "text": "Name  Type  Source  Options  Description      passcode  MpPasscode  body   user enter the passcode", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/passcode/#responses", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError  The user given wrong format of passcode or passcode have already setup.    401 Unauthorized  ParsecResourceError  The user not login.    403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError  The system have error.", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/passcode/#put-passcodes", 
+            "text": "Reset passcode by given old passcode or authorized card number", 
+            "title": "PUT /passcodes"
+        }, 
+        {
+            "location": "/passcode/#request-parameters_1", 
+            "text": "Name  Type  Source  Options  Description      resetData  MpResetData  body   Reset data user given.", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/passcode/#responses_1", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/passcode/#get-passcodes", 
+            "text": "Check the user have set passcode or not.", 
+            "title": "GET /passcodes"
+        }, 
+        {
+            "location": "/passcode/#responses_2", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     404 Not Found  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/passcode/#delete-passcodes", 
+            "text": "Check the user and its passcode.", 
+            "title": "DELETE /passcodes"
+        }, 
+        {
+            "location": "/passcode/#responses_3", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/passcode/#mpcheckresult", 
+            "text": "", 
+            "title": "MpCheckResult"
+        }, 
+        {
+            "location": "/passcode/#post-passcodescheck", 
+            "text": "Given passcode to check match user's passcode or not", 
+            "title": "POST /passcodes/check"
+        }, 
+        {
+            "location": "/passcode/#request-parameters_2", 
+            "text": "Name  Type  Source  Options  Description      passcode  MpPasscode  body   The passcode user given", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/passcode/#responses_4", 
+            "text": "Expected:     Code  Type      200 OK  MpCheckResult     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/passcode/#types", 
+            "text": "", 
+            "title": "Types"
+        }, 
+        {
+            "location": "/tos/", 
+            "text": "The Tos API\n\n\nThis API has the following attributes:\n\n\n\n\n\n\n\n\nAttribute\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nnamespace\n\n\ncom.yahoo.ecosystem.mobile_payment.parsec\n\n\n\n\n\n\nversion\n\n\n1\n\n\n\n\n\n\n\n\nResources\n\n\nMpNullResult\n\n\nPUT /toses\n\n\nThe API give user update tos\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntos\n\n\nMpTos\n\n\nbody\n\n\n\n\nuser enter the tos, just input empty object\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\nThe user given wrong format of tos or tos have already setup.\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\nThe user not login.\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\nInvalid wssid.\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\nThe system have error.\n\n\n\n\n\n\n\n\nDELETE /toses\n\n\nThe API delete all toses of a user for qa testing\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\nThe user given wrong format of tos or tos have already setup.\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\nThe user not login.\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\nInvalid wssid or user not in whitelist.\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\nThe system have error.\n\n\n\n\n\n\n\n\nMpTos\n\n\nGET /toses\n\n\nGet tos belong to the user\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpTos\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\nThe user not login.\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\nInvalid wssid.\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\nThe system have error.\n\n\n\n\n\n\n\n\nTypes\n\n\n ParsecErrorDetail\n\n\nDO NOT MODIFY This file is for who want to use ParsecResourceError as error\nlayout. But the structure here is only a reminder for user. It will not be\nparsed by Parsec. Change this file will not affect the implementation of\nParsecResourceError. If you want to change the error layout of api end point,\nyou can customize your own error layout class.\n\n\nParsecErrorDetail\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ninvalidValue\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ParsecErrorBody\n\n\nParsec error response entity object\n\n\nParsecErrorBody\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncode\n\n\nInt32\n\n\n\n\nerror code\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\nerror message\n\n\n\n\n\n\n\n\ndetail\n\n\nArray\nParsecErrorDetail\n\n\n\n\nerror detail\n\n\n\n\n\n\n\n\n\n\n ParsecResourceError\n\n\nThis error model is designed for following EC REST API Convention (yo/ecrest)\n\n\nParsecResourceError\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nerror\n\n\nParsecErrorBody\n\n\n\n\nerror object\n\n\n\n\n\n\n\n\n\n\n MpNullResult\n\n\nThe object is just for no content\n\n\nMpNullResult\n is a \nStruct\n with no specified fields\n\n\n MpCheckResult\n\n\nThe object is for creditCardAuth \n passCode check result\n\n\nMpCheckResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nisValid\n\n\nBool\n\n\n\n\nTrue if credit card number or passcode is valid, false if not.\n\n\n\n\n\n\n\n\n\n\n DateTime\n\n\nISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6\ne.g.2013-03-06T11:00:00Z\n\n\nDateTime\n is a \nString\n type.\n\n\n GUID\n\n\nYahoo global uniq id\n\n\nGUID\n is an alias of type \nString\n\n\n MpTos\n\n\ntos\n\n\nMpTos\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nagreeTime\n\n\nDateTime\n\n\n\n\ndatetime string.\n\n\n\n\n\n\n\n\nisValid\n\n\nBool\n\n\n\n\nthe tos is valid or not\n\n\n\n\n\n\n\n\n\n\nSwagger URL", 
+            "title": "tos"
+        }, 
+        {
+            "location": "/tos/#the-tos-api", 
+            "text": "This API has the following attributes:     Attribute  Value      namespace  com.yahoo.ecosystem.mobile_payment.parsec    version  1", 
+            "title": "The Tos API"
+        }, 
+        {
+            "location": "/tos/#resources", 
+            "text": "", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/tos/#mpnullresult", 
+            "text": "", 
+            "title": "MpNullResult"
+        }, 
+        {
+            "location": "/tos/#put-toses", 
+            "text": "The API give user update tos", 
+            "title": "PUT /toses"
+        }, 
+        {
+            "location": "/tos/#request-parameters", 
+            "text": "Name  Type  Source  Options  Description      tos  MpTos  body   user enter the tos, just input empty object", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/tos/#responses", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError  The user given wrong format of tos or tos have already setup.    401 Unauthorized  ParsecResourceError  The user not login.    403 Forbidden  ParsecResourceError  Invalid wssid.    500 Internal Server Error  ParsecResourceError  The system have error.", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/tos/#delete-toses", 
+            "text": "The API delete all toses of a user for qa testing", 
+            "title": "DELETE /toses"
+        }, 
+        {
+            "location": "/tos/#responses_1", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError  The user given wrong format of tos or tos have already setup.    401 Unauthorized  ParsecResourceError  The user not login.    403 Forbidden  ParsecResourceError  Invalid wssid or user not in whitelist.    500 Internal Server Error  ParsecResourceError  The system have error.", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/tos/#mptos", 
+            "text": "", 
+            "title": "MpTos"
+        }, 
+        {
+            "location": "/tos/#get-toses", 
+            "text": "Get tos belong to the user", 
+            "title": "GET /toses"
+        }, 
+        {
+            "location": "/tos/#responses_2", 
+            "text": "Expected:     Code  Type      200 OK  MpTos     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError  The user not login.    403 Forbidden  ParsecResourceError  Invalid wssid.    500 Internal Server Error  ParsecResourceError  The system have error.", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/tos/#types", 
+            "text": "", 
+            "title": "Types"
+        }, 
+        {
+            "location": "/transaction/", 
+            "text": "The Transaction API\n\n\nThis API has the following attributes:\n\n\n\n\n\n\n\n\nAttribute\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nnamespace\n\n\ncom.yahoo.ecosystem.mobile_payment.parsec\n\n\n\n\n\n\nversion\n\n\n1\n\n\n\n\n\n\n\n\nResources\n\n\nMpPaymentToken\n\n\nPOST /paymentTokens\n\n\nGenerate token for mobile payment. authenticate by ytcookie \n wssid\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npaymentToken\n\n\nMpPaymentToken\n\n\nbody\n\n\n\n\nToken request data.\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n201 CREATED\n\n\nMpPaymentToken\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nMpNullResult\n\n\nPUT /paymentTokens/{tokenId}\n\n\nUpdate token position. authenticate by ytcookie \n wssid\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntokenId\n\n\nString\n\n\npath\n\n\n\n\nThe token id\n\n\n\n\n\n\npaymentToken\n\n\nMpPaymentToken\n\n\nbody\n\n\n\n\nToken request data to be updated.\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n404 Not Found\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nDELETE /transactions\n\n\nDelete the transaction of user.\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n204 No Content\n\n\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nMpTransactionCollection\n\n\nGET /transactions\n\n\nlist transactions belong to the user\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\noffset\n\n\nint32\n\n\nquery: offset\n\n\noptional, default=0\n\n\nOffset of items of results.\n\n\n\n\n\n\ncount\n\n\nint32\n\n\nquery: count\n\n\noptional, default=10\n\n\nNumber of items to return.\n\n\n\n\n\n\nstartTs\n\n\nDateTime\n\n\nquery: startTs\n\n\n\n\nResource create time as the start range.\n\n\n\n\n\n\nendTs\n\n\nDateTime\n\n\nquery: endTs\n\n\n\n\nResource create time as the end range.\n\n\n\n\n\n\nsortBy\n\n\nString\n\n\nquery: sortBy\n\n\noptional, default=createTime\n\n\nsort by specific field, only support createTime for now\n\n\n\n\n\n\nsortOrder\n\n\nMpSortOrder\n\n\nquery: sortOrder\n\n\noptional, default=ASC\n\n\nSort based on order of results.\n\n\n\n\n\n\ndetail\n\n\nBool\n\n\nquery: detail\n\n\noptional, default=false\n\n\nShow summary txns or full detail txns, default is summary\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpTransactionCollection\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nMpTransaction\n\n\nGET /transactions/{transactionId}\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntransactionId\n\n\nString\n\n\npath\n\n\n\n\nThe transaction id\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nMpTransaction\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n404 Not Found\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nParsecResourceError\n\n\n\n\n\n\n\n\n\n\nTypes\n\n\n ParsecErrorDetail\n\n\nDO NOT MODIFY This file is for who want to use ParsecResourceError as error\nlayout. But the structure here is only a reminder for user. It will not be\nparsed by Parsec. Change this file will not affect the implementation of\nParsecResourceError. If you want to change the error layout of api end point,\nyou can customize your own error layout class.\n\n\nParsecErrorDetail\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ninvalidValue\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ParsecErrorBody\n\n\nParsec error response entity object\n\n\nParsecErrorBody\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ncode\n\n\nInt32\n\n\n\n\nerror code\n\n\n\n\n\n\n\n\nmessage\n\n\nString\n\n\n\n\nerror message\n\n\n\n\n\n\n\n\ndetail\n\n\nArray\nParsecErrorDetail\n\n\n\n\nerror detail\n\n\n\n\n\n\n\n\n\n\n ParsecResourceError\n\n\nThis error model is designed for following EC REST API Convention (yo/ecrest)\n\n\nParsecResourceError\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nerror\n\n\nParsecErrorBody\n\n\n\n\nerror object\n\n\n\n\n\n\n\n\n\n\n MpNullResult\n\n\nThe object is just for no content\n\n\nMpNullResult\n is a \nStruct\n with no specified fields\n\n\n MpCheckResult\n\n\nThe object is for creditCardAuth \n passCode check result\n\n\nMpCheckResult\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nisValid\n\n\nBool\n\n\n\n\nTrue if credit card number or passcode is valid, false if not.\n\n\n\n\n\n\n\n\n\n\n DateTime\n\n\nISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6\ne.g.2013-03-06T11:00:00Z\n\n\nDateTime\n is a \nString\n type.\n\n\n GUID\n\n\nYahoo global uniq id\n\n\nGUID\n is an alias of type \nString\n\n\n MpPaymentType\n\n\nMpPaymentType\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nCREDIT_CARD_TOKEN\n\n\n\n\n\n\n\n\n\n\n MpPaymentToken\n\n\nToken data.\n\n\nMpPaymentToken\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nid\n\n\nString\n\n\n\n\nToken id.\n\n\n\n\n\n\n\n\ntokenValue\n\n\nString\n\n\n\n\nToken value.\n\n\n\n\n\n\n\n\nexpire\n\n\nDateTime\n\n\n\n\nToken expire time.\n\n\n\n\n\n\n\n\nexpireDuration\n\n\nInt64\n\n\n\n\n\n\n\n\n\n\n\n\ncreditCardId\n\n\nString\n\n\n\n\nThe credit card id in bastet for payment.\n\n\n\n\n\n\n\n\nbuyerId\n\n\nGUID\n\n\n\n\n\n\n\n\n\n\n\n\npayType\n\n\nMpPaymentType\n\n\n\n\n\n\n\n\n\n\n\n\nccode\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nproperty\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nlongitude\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nlatitude\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\npassCode\n\n\nString\n\n\n\n\nThe user's passcode.\n\n\n\n\n\n\n\n\n\n\n MpTransactionType\n\n\nMpTransactionType\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nPAY\n\n\n\n\n\n\n\n\nREFUND\n\n\n\n\n\n\n\n\n\n\n MpTransStatus\n\n\nMpTransStatus\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNOT_PAID\n\n\n\n\n\n\n\n\nPAID_OK\n\n\n\n\n\n\n\n\nPAY_FAILED\n\n\n\n\n\n\n\n\nCANCELLED\n\n\n\n\n\n\n\n\nINVALID\n\n\n\n\n\n\n\n\n\n\n MpRefundStatus\n\n\nMpRefundStatus\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nINIT\n\n\n\n\n\n\n\n\nDONE\n\n\n\n\n\n\n\n\nCANCELLED\n\n\n\n\n\n\n\n\n\n\n MpApplyPointStatus\n\n\nMpApplyPointStatus\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nTO_BE_APPLIED\n\n\n\n\n\n\n\n\nAPPLIED\n\n\n\n\n\n\n\n\n\n\n MpTransCreditCardSubType\n\n\nMpTransCreditCardSubType\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nYAHOO_CO_BRANDED\n\n\n\n\n\n\n\n\n\n\n MpSortOrder\n\n\nMpSortOrder\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nASC\n\n\nascending order descending order\n\n\n\n\n\n\nDESC\n\n\n\n\n\n\n\n\n\n\n MpPartnerId\n\n\nMpPartnerId\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nCTCB\n\n\n\n\n\n\n\n\n\n\n MpTransErrorCode\n\n\nMpTransErrorCode\n is an \nEnum\n of the following values:\n\n\n\n\n\n\n\n\nValue\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nOK\n\n\n\n\n\n\n\n\nCARD_NOT_SUPPORTED\n\n\n\n\n\n\n\n\nCARD_EXPIRED\n\n\n\n\n\n\n\n\nEXCEEDED_CREDIT_LIMIT\n\n\n\n\n\n\n\n\nEXCEEDED_TRANSACTION_LIMIT\n\n\n\n\n\n\n\n\nSYSTEM_UNDER_MAINTENANCE\n\n\n\n\n\n\n\n\n\n\n MpTransaction\n\n\nMpTransaction\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nid\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ntransType\n\n\nMpTransactionType\n\n\n\n\n\n\n\n\n\n\n\n\npayType\n\n\nMpPaymentType\n\n\n\n\n\n\n\n\n\n\n\n\nbuyerId\n\n\nGUID\n\n\n\n\n\n\n\n\n\n\n\n\nccode\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nproperty\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\namount\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ncurrency\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nrealAmount\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nusedPoints\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\nsummary\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\ndetail\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\nstatus\n\n\nMpTransStatus\n\n\n\n\n\n\n\n\n\n\n\n\npartnerOrderId\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\ndate\n\n\nDateTime\n\n\n\n\n\n\n\n\n\n\n\n\ncancelDate\n\n\nDateTime\n\n\noptional\n\n\n\n\n\n\n\n\n\n\npartnerId\n\n\nMpPartnerId\n\n\n\n\n\n\n\n\n\n\n\n\npartnerTxSeq\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nmerchantId\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nmerchantName\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ncorpId\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ncorpTxSeq\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\ncorpTxTime\n\n\nDateTime\n\n\n\n\n\n\n\n\n\n\n\n\nstoreId\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\nstoreName\n\n\nString\n\n\noptional\n\n\n\n\n\n\n\n\n\n\ncreditCardId\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nccFirstDigits\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nccLastDigits\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nccSubType\n\n\nMpTransCreditCardSubType\n\n\n\n\n\n\n\n\n\n\n\n\nccDisplayName\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nappliedPoints\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nrefundStatus\n\n\nMpRefundStatus\n\n\n\n\n\n\n\n\n\n\n\n\napplyPointStatus\n\n\nMpApplyPointStatus\n\n\n\n\n\n\n\n\n\n\n\n\npaidDate\n\n\nDateTime\n\n\n\n\n\n\n\n\n\n\n\n\ncreateTime\n\n\nDateTime\n\n\n\n\n\n\n\n\n\n\n\n\nmodifyTime\n\n\nDateTime\n\n\n\n\n\n\n\n\n\n\n\n\nlongitude\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nlatitude\n\n\nString\n\n\n\n\n\n\n\n\n\n\n\n\nerrorCode\n\n\nMpTransErrorCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n MpTransactionCollection\n\n\nMpTransactionCollection\n is a \nStruct\n type with the following fields:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptions\n\n\nDescription\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\ntransactions\n\n\nArray\nMpTransaction\n\n\n\n\nA list of transaction\n\n\n\n\n\n\n\n\ntotalResults\n\n\nInt32\n\n\n\n\nNumber of transactions returned\n\n\n\n\n\n\n\n\nnextOffset\n\n\nInt32\n\n\n\n\nIf there is more result, the nextOffset can pass to next query, return -1 if no offset anymore\n\n\n\n\n\n\n\n\n\n\nSwagger URL", 
+            "title": "transaction"
+        }, 
+        {
+            "location": "/transaction/#the-transaction-api", 
+            "text": "This API has the following attributes:     Attribute  Value      namespace  com.yahoo.ecosystem.mobile_payment.parsec    version  1", 
+            "title": "The Transaction API"
+        }, 
+        {
+            "location": "/transaction/#resources", 
+            "text": "", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/transaction/#mppaymenttoken", 
+            "text": "", 
+            "title": "MpPaymentToken"
+        }, 
+        {
+            "location": "/transaction/#post-paymenttokens", 
+            "text": "Generate token for mobile payment. authenticate by ytcookie   wssid", 
+            "title": "POST /paymentTokens"
+        }, 
+        {
+            "location": "/transaction/#request-parameters", 
+            "text": "Name  Type  Source  Options  Description      paymentToken  MpPaymentToken  body   Token request data.", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/transaction/#responses", 
+            "text": "Expected:     Code  Type      201 CREATED  MpPaymentToken     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/transaction/#mpnullresult", 
+            "text": "", 
+            "title": "MpNullResult"
+        }, 
+        {
+            "location": "/transaction/#put-paymenttokenstokenid", 
+            "text": "Update token position. authenticate by ytcookie   wssid", 
+            "title": "PUT /paymentTokens/{tokenId}"
+        }, 
+        {
+            "location": "/transaction/#request-parameters_1", 
+            "text": "Name  Type  Source  Options  Description      tokenId  String  path   The token id    paymentToken  MpPaymentToken  body   Token request data to be updated.", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/transaction/#responses_1", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     404 Not Found  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/transaction/#delete-transactions", 
+            "text": "Delete the transaction of user.", 
+            "title": "DELETE /transactions"
+        }, 
+        {
+            "location": "/transaction/#responses_2", 
+            "text": "Expected:     Code  Type      204 No Content      Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/transaction/#mptransactioncollection", 
+            "text": "", 
+            "title": "MpTransactionCollection"
+        }, 
+        {
+            "location": "/transaction/#get-transactions", 
+            "text": "list transactions belong to the user", 
+            "title": "GET /transactions"
+        }, 
+        {
+            "location": "/transaction/#request-parameters_2", 
+            "text": "Name  Type  Source  Options  Description      offset  int32  query: offset  optional, default=0  Offset of items of results.    count  int32  query: count  optional, default=10  Number of items to return.    startTs  DateTime  query: startTs   Resource create time as the start range.    endTs  DateTime  query: endTs   Resource create time as the end range.    sortBy  String  query: sortBy  optional, default=createTime  sort by specific field, only support createTime for now    sortOrder  MpSortOrder  query: sortOrder  optional, default=ASC  Sort based on order of results.    detail  Bool  query: detail  optional, default=false  Show summary txns or full detail txns, default is summary", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/transaction/#responses_3", 
+            "text": "Expected:     Code  Type      200 OK  MpTransactionCollection     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/transaction/#mptransaction", 
+            "text": "", 
+            "title": "MpTransaction"
+        }, 
+        {
+            "location": "/transaction/#get-transactionstransactionid", 
+            "text": "", 
+            "title": "GET /transactions/{transactionId}"
+        }, 
+        {
+            "location": "/transaction/#request-parameters_3", 
+            "text": "Name  Type  Source  Options  Description      transactionId  String  path   The transaction id", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/transaction/#responses_4", 
+            "text": "Expected:     Code  Type      200 OK  MpTransaction     Exception:     Code  Type  Comment      400 Bad Request  ParsecResourceError     401 Unauthorized  ParsecResourceError     403 Forbidden  ParsecResourceError     404 Not Found  ParsecResourceError     500 Internal Server Error  ParsecResourceError", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/transaction/#types", 
+            "text": "", 
+            "title": "Types"
+        }, 
+        {
+            "location": "/wallet/", 
+            "text": "The Wallet API\n\n\nThis API has the following attributes:\n\n\n\n\n\n\n\n\nAttribute\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nnamespace\n\n\ncom.yahoo.ecosystem.mobile_payment.parsec\n\n\n\n\n\n\nversion\n\n\n1\n\n\n\n\n\n\n\n\nResources\n\n\nstring\n\n\nPOST /wallet\n\n\nRequest parameters:\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSource\n\n\nOptions\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbody\n\n\nstring\n\n\nbody\n\n\n\n\n\n\n\n\n\n\nsign\n\n\nstring\n\n\nheader: Req-Msg-Sign\n\n\n\n\n\n\n\n\n\n\n\n\nResponses:\n\n\nExpected:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\n\n\n\n\n\n\n\n\n200 OK\n\n\nstring\n\n\n\n\n\n\n\n\nException:\n\n\n\n\n\n\n\n\nCode\n\n\nType\n\n\nComment\n\n\n\n\n\n\n\n\n\n\n400 Bad Request\n\n\nResourceError\n\n\n\n\n\n\n\n\n401 Unauthorized\n\n\nResourceError\n\n\n\n\n\n\n\n\n403 Forbidden\n\n\nResourceError\n\n\n\n\n\n\n\n\n500 Internal Server Error\n\n\nResourceError\n\n\n\n\n\n\n\n\n\n\nSwagger URL", 
+            "title": "wallet"
+        }, 
+        {
+            "location": "/wallet/#the-wallet-api", 
+            "text": "This API has the following attributes:     Attribute  Value      namespace  com.yahoo.ecosystem.mobile_payment.parsec    version  1", 
+            "title": "The Wallet API"
+        }, 
+        {
+            "location": "/wallet/#resources", 
+            "text": "", 
+            "title": "Resources"
+        }, 
+        {
+            "location": "/wallet/#string", 
+            "text": "", 
+            "title": "string"
+        }, 
+        {
+            "location": "/wallet/#post-wallet", 
+            "text": "", 
+            "title": "POST /wallet"
+        }, 
+        {
+            "location": "/wallet/#request-parameters", 
+            "text": "Name  Type  Source  Options  Description      body  string  body      sign  string  header: Req-Msg-Sign", 
+            "title": "Request parameters:"
+        }, 
+        {
+            "location": "/wallet/#responses", 
+            "text": "Expected:     Code  Type      200 OK  string     Exception:     Code  Type  Comment      400 Bad Request  ResourceError     401 Unauthorized  ResourceError     403 Forbidden  ResourceError     500 Internal Server Error  ResourceError      Swagger URL", 
+            "title": "Responses:"
+        }, 
+        {
+            "location": "/apex_reserved_swaggerui/", 
+            "text": "Swagger UI\n\n\n\n\ncreditcard\n\n\nlock\n\n\npasscode\n\n\ntos\n\n\ntransaction\n\n\nwallet", 
+            "title": "Swagger UI"
+        }, 
+        {
+            "location": "/apex_reserved_swaggerui/#swagger-ui", 
+            "text": "creditcard  lock  passcode  tos  transaction  wallet", 
+            "title": "Swagger UI"
+        }
+    ]
+}

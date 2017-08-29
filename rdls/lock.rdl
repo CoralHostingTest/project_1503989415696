@@ -1,0 +1,41 @@
+namespace com.yahoo.ecosystem.mobile_payment.parsec
+name Lock
+version 1
+base "/mobilePayment"
+
+include "ParsecResourceError.rdli"
+include "common.rdli"
+
+// lock policy
+type MpLockPolicy enum {
+    REQUEST_TOKEN,
+    RESET_BY_PASSCODE,
+    RESET_BY_CARD_NUMBER,
+    VERIFY_CREDIT_CARD,
+    CHECK_PASSCODE
+}
+
+// lock duration
+type MpLockDuration enum {
+    DURATION_10_MINS,
+    DURATION_1_HOURS,
+    DURATION_24_HOURS
+}
+
+// The API to delete all locks for qa testing
+resource MpNullResult DELETE "/locks?policy={policy}&duration={duration}" (name=deleteLocks) {
+
+    MpLockPolicy policy
+    MpLockDuration duration
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR; // The system have error.
+        ParsecResourceError BAD_REQUEST;           // The user given wrong format of lock.
+        ParsecResourceError UNAUTHORIZED;          // The user not login.
+        ParsecResourceError FORBIDDEN;             // Invalid wssid or user not in whitelist.
+    }
+}

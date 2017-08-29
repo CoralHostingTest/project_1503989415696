@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>transaction - Test Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "transaction";
+    var mkdocs_page_input_path = "transaction.md";
+    var mkdocs_page_url = "/transaction/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Test Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API Specification</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../creditcard/">creditcard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lock/">lock</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../passcode/">passcode</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tos/">tos</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">transaction</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#the-transaction-api">The Transaction API</a></li>
+                
+                    <li><a class="toctree-l4" href="#resources">Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#types">Types</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../wallet/">wallet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apex_reserved_swaggerui/">Swagger UI</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Test Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API Specification &raquo;</li>
+        
+      
+    
+    <li>transaction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-transaction-api">The Transaction API</h1>
+<p>This API has the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespace</td>
+<td>com.yahoo.ecosystem.mobile_payment.parsec</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resources">Resources</h2>
+<h3 id="mppaymenttoken"><a href="#MpPaymentToken">MpPaymentToken</a></h3>
+<h4 id="post-paymenttokens">POST /paymentTokens</h4>
+<p>Generate token for mobile payment. authenticate by ytcookie &amp; wssid</p>
+<h4 id="request-parameters">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>paymentToken</td>
+<td><a href="#mppaymenttoken">MpPaymentToken</a></td>
+<td>body</td>
+<td></td>
+<td>Token request data.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>201 CREATED</td>
+<td><a href="#mppaymenttoken">MpPaymentToken</a></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpnullresult"><a href="#MpNullResult">MpNullResult</a></h3>
+<h4 id="put-paymenttokenstokenid">PUT /paymentTokens/{tokenId}</h4>
+<p>Update token position. authenticate by ytcookie &amp; wssid</p>
+<h4 id="request-parameters_1">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tokenId</td>
+<td>String</td>
+<td>path</td>
+<td></td>
+<td>The token id</td>
+</tr>
+<tr>
+<td>paymentToken</td>
+<td><a href="#mppaymenttoken">MpPaymentToken</a></td>
+<td>body</td>
+<td></td>
+<td>Token request data to be updated.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses_1">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="delete-transactions">DELETE /transactions</h4>
+<p>Delete the transaction of user.</p>
+<h4 id="responses_2">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204 No Content</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptransactioncollection"><a href="#MpTransactionCollection">MpTransactionCollection</a></h3>
+<h4 id="get-transactions">GET /transactions</h4>
+<p>list transactions belong to the user</p>
+<h4 id="request-parameters_2">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offset</td>
+<td>int32</td>
+<td>query: offset</td>
+<td>optional, default=0</td>
+<td>Offset of items of results.</td>
+</tr>
+<tr>
+<td>count</td>
+<td>int32</td>
+<td>query: count</td>
+<td>optional, default=10</td>
+<td>Number of items to return.</td>
+</tr>
+<tr>
+<td>startTs</td>
+<td><a href="#datetime">DateTime</a></td>
+<td>query: startTs</td>
+<td></td>
+<td>Resource create time as the start range.</td>
+</tr>
+<tr>
+<td>endTs</td>
+<td><a href="#datetime">DateTime</a></td>
+<td>query: endTs</td>
+<td></td>
+<td>Resource create time as the end range.</td>
+</tr>
+<tr>
+<td>sortBy</td>
+<td>String</td>
+<td>query: sortBy</td>
+<td>optional, default=createTime</td>
+<td>sort by specific field, only support createTime for now</td>
+</tr>
+<tr>
+<td>sortOrder</td>
+<td><a href="#mpsortorder">MpSortOrder</a></td>
+<td>query: sortOrder</td>
+<td>optional, default=ASC</td>
+<td>Sort based on order of results.</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Bool</td>
+<td>query: detail</td>
+<td>optional, default=false</td>
+<td>Show summary txns or full detail txns, default is summary</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses_3">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200 OK</td>
+<td>MpTransactionCollection</td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptransaction"><a href="#MpTransaction">MpTransaction</a></h3>
+<h4 id="get-transactionstransactionid">GET /transactions/{transactionId}</h4>
+<h4 id="request-parameters_3">Request parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Source</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transactionId</td>
+<td>String</td>
+<td>path</td>
+<td></td>
+<td>The transaction id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses_4">Responses:</h4>
+<p>Expected:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200 OK</td>
+<td>MpTransaction</td>
+</tr>
+</tbody>
+</table>
+<p>Exception:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400 Bad Request</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td><a href="#parsecresourceerror">ParsecResourceError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types</h2>
+<h3 id="parsecerrordetail"><a name="ParsecErrorDetail"></a> ParsecErrorDetail</h3>
+<p>DO NOT MODIFY This file is for who want to use ParsecResourceError as error
+layout. But the structure here is only a reminder for user. It will not be
+parsed by Parsec. Change this file will not affect the implementation of
+ParsecResourceError. If you want to change the error layout of api end point,
+you can customize your own error layout class.</p>
+<p><code>ParsecErrorDetail</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalidValue</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parsecerrorbody"><a name="ParsecErrorBody"></a> ParsecErrorBody</h3>
+<p>Parsec error response entity object</p>
+<p><code>ParsecErrorBody</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>Int32</td>
+<td></td>
+<td>error code</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+<td>error message</td>
+<td></td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Array&lt;<a href="#parsecerrordetail">ParsecErrorDetail</a>&gt;</td>
+<td></td>
+<td>error detail</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="parsecresourceerror"><a name="ParsecResourceError"></a> ParsecResourceError</h3>
+<p>This error model is designed for following EC REST API Convention (yo/ecrest)</p>
+<p><code>ParsecResourceError</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td><a href="#parsecerrorbody">ParsecErrorBody</a></td>
+<td></td>
+<td>error object</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpnullresult_1"><a name="MpNullResult"></a> MpNullResult</h3>
+<p>The object is just for no content</p>
+<p><code>MpNullResult</code> is a <code>Struct</code> with no specified fields</p>
+<h3 id="mpcheckresult"><a name="MpCheckResult"></a> MpCheckResult</h3>
+<p>The object is for creditCardAuth &amp; passCode check result</p>
+<p><code>MpCheckResult</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isValid</td>
+<td>Bool</td>
+<td></td>
+<td>True if credit card number or passcode is valid, false if not.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="datetime"><a name="DateTime"></a> DateTime</h3>
+<p>ISO 8601 ref: http://tools.ietf.org/html/rfc3339#section-5.6
+e.g.2013-03-06T11:00:00Z</p>
+<p><code>DateTime</code> is a <code>String</code> type.</p>
+<h3 id="guid"><a name="GUID"></a> GUID</h3>
+<p>Yahoo global uniq id</p>
+<p><code>GUID</code> is an alias of type <code>String</code></p>
+<h3 id="mppaymenttype"><a name="MpPaymentType"></a> MpPaymentType</h3>
+<p><code>MpPaymentType</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREDIT_CARD_TOKEN</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mppaymenttoken_1"><a name="MpPaymentToken"></a> MpPaymentToken</h3>
+<p>Token data.</p>
+<p><code>MpPaymentToken</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td></td>
+<td>Token id.</td>
+<td></td>
+</tr>
+<tr>
+<td>tokenValue</td>
+<td>String</td>
+<td></td>
+<td>Token value.</td>
+<td></td>
+</tr>
+<tr>
+<td>expire</td>
+<td><a href="#datetime">DateTime</a></td>
+<td></td>
+<td>Token expire time.</td>
+<td></td>
+</tr>
+<tr>
+<td>expireDuration</td>
+<td>Int64</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>creditCardId</td>
+<td>String</td>
+<td></td>
+<td>The credit card id in bastet for payment.</td>
+<td></td>
+</tr>
+<tr>
+<td>buyerId</td>
+<td><a href="#guid">GUID</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>payType</td>
+<td><a href="#mppaymenttype">MpPaymentType</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ccode</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>property</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>passCode</td>
+<td>String</td>
+<td></td>
+<td>The user's passcode.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptransactiontype"><a name="MpTransactionType"></a> MpTransactionType</h3>
+<p><code>MpTransactionType</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAY</td>
+<td></td>
+</tr>
+<tr>
+<td>REFUND</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptransstatus"><a name="MpTransStatus"></a> MpTransStatus</h3>
+<p><code>MpTransStatus</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOT_PAID</td>
+<td></td>
+</tr>
+<tr>
+<td>PAID_OK</td>
+<td></td>
+</tr>
+<tr>
+<td>PAY_FAILED</td>
+<td></td>
+</tr>
+<tr>
+<td>CANCELLED</td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mprefundstatus"><a name="MpRefundStatus"></a> MpRefundStatus</h3>
+<p><code>MpRefundStatus</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INIT</td>
+<td></td>
+</tr>
+<tr>
+<td>DONE</td>
+<td></td>
+</tr>
+<tr>
+<td>CANCELLED</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpapplypointstatus"><a name="MpApplyPointStatus"></a> MpApplyPointStatus</h3>
+<p><code>MpApplyPointStatus</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TO_BE_APPLIED</td>
+<td></td>
+</tr>
+<tr>
+<td>APPLIED</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptranscreditcardsubtype"><a name="MpTransCreditCardSubType"></a> MpTransCreditCardSubType</h3>
+<p><code>MpTransCreditCardSubType</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YAHOO_CO_BRANDED</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mpsortorder"><a name="MpSortOrder"></a> MpSortOrder</h3>
+<p><code>MpSortOrder</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASC</td>
+<td>ascending order descending order</td>
+</tr>
+<tr>
+<td>DESC</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mppartnerid"><a name="MpPartnerId"></a> MpPartnerId</h3>
+<p><code>MpPartnerId</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTCB</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptranserrorcode"><a name="MpTransErrorCode"></a> MpTransErrorCode</h3>
+<p><code>MpTransErrorCode</code> is an <code>Enum</code> of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<td>CARD_NOT_SUPPORTED</td>
+<td></td>
+</tr>
+<tr>
+<td>CARD_EXPIRED</td>
+<td></td>
+</tr>
+<tr>
+<td>EXCEEDED_CREDIT_LIMIT</td>
+<td></td>
+</tr>
+<tr>
+<td>EXCEEDED_TRANSACTION_LIMIT</td>
+<td></td>
+</tr>
+<tr>
+<td>SYSTEM_UNDER_MAINTENANCE</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptransaction_1"><a name="MpTransaction"></a> MpTransaction</h3>
+<p><code>MpTransaction</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>transType</td>
+<td><a href="#mptransactiontype">MpTransactionType</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>payType</td>
+<td><a href="#mppaymenttype">MpPaymentType</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>buyerId</td>
+<td><a href="#guid">GUID</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ccode</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>property</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>realAmount</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>usedPoints</td>
+<td>String</td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>summary</td>
+<td>String</td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>detail</td>
+<td>String</td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="#mptransstatus">MpTransStatus</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>partnerOrderId</td>
+<td>String</td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td><a href="#datetime">DateTime</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cancelDate</td>
+<td><a href="#datetime">DateTime</a></td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>partnerId</td>
+<td><a href="#mppartnerid">MpPartnerId</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>partnerTxSeq</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>merchantId</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>merchantName</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>corpId</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>corpTxSeq</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>corpTxTime</td>
+<td><a href="#datetime">DateTime</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>storeId</td>
+<td>String</td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>storeName</td>
+<td>String</td>
+<td>optional</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>creditCardId</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ccFirstDigits</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ccLastDigits</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ccSubType</td>
+<td><a href="#mptranscreditcardsubtype">MpTransCreditCardSubType</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ccDisplayName</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appliedPoints</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>refundStatus</td>
+<td><a href="#mprefundstatus">MpRefundStatus</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>applyPointStatus</td>
+<td><a href="#mpapplypointstatus">MpApplyPointStatus</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>paidDate</td>
+<td><a href="#datetime">DateTime</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>createTime</td>
+<td><a href="#datetime">DateTime</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>modifyTime</td>
+<td><a href="#datetime">DateTime</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>errorCode</td>
+<td><a href="#mptranserrorcode">MpTransErrorCode</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mptransactioncollection_1"><a name="MpTransactionCollection"></a> MpTransactionCollection</h3>
+<p><code>MpTransactionCollection</code> is a <code>Struct</code> type with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Options</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transactions</td>
+<td>Array&lt;<a href="#mptransaction">MpTransaction</a>&gt;</td>
+<td></td>
+<td>A list of transaction</td>
+<td></td>
+</tr>
+<tr>
+<td>totalResults</td>
+<td>Int32</td>
+<td></td>
+<td>Number of transactions returned</td>
+<td></td>
+</tr>
+<tr>
+<td>nextOffset</td>
+<td>Int32</td>
+<td></td>
+<td>If there is more result, the nextOffset can pass to next query, return -1 if no offset anymore</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://git.corp.yahoo.com/pages/ApexTest/Swagger-UI/parsec/swagger-ui/?url=https://git.corp.yahoo.com/pages/ApexTest/project_1503989415696/swagger-json/transaction_swagger.json">Swagger URL</a></p>
+              
+            </div>
+          </div>
+          <!--
+custom blank footer
+-->
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../tos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../wallet/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

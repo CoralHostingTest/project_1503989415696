@@ -1,0 +1,18 @@
+// The object is just for no content
+type MpNullResult Struct {
+
+}
+
+// The object is for creditCardAuth & passCode check result
+type MpCheckResult Struct {
+  // True if credit card number or passcode is valid, false if not.
+  Bool isValid;
+}
+
+// ISO 8601
+// ref: http://tools.ietf.org/html/rfc3339#section-5.6
+// e.g.2013-03-06T11:00:00Z
+type DateTime String (x_date_time)
+
+// Yahoo global uniq id
+type GUID String

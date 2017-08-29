@@ -1,0 +1,763 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "The Transaction API",
+        "version": "1"
+    },
+    "basePath": "/api/mobilePayment/v1",
+    "schemes": [],
+    "paths": {
+        "/paymentTokens": {
+            "post": {
+                "tags": [
+                    "MpPaymentToken"
+                ],
+                "summary": "Generate token for mobile payment. authenticate by ytcookie \u0026 wssid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "paymentToken",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/MpPaymentToken"
+                        },
+                        "description": "Token request data.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "CREATED",
+                        "schema": {
+                            "$ref": "#/definitions/MpPaymentToken"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/paymentTokens/{tokenId}": {
+            "put": {
+                "tags": [
+                    "MpNullResult"
+                ],
+                "summary": "Update token position. authenticate by ytcookie \u0026 wssid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tokenId",
+                        "in": "path",
+                        "type": "string",
+                        "description": "The token id",
+                        "required": true
+                    },
+                    {
+                        "name": "paymentToken",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/MpPaymentToken"
+                        },
+                        "description": "Token request data to be updated.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/transactions": {
+            "delete": {
+                "tags": [
+                    "MpNullResult"
+                ],
+                "summary": "Delete the transaction of user.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "MpTransactionCollection"
+                ],
+                "summary": "list transactions belong to the user",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Offset of items of results.",
+                        "required": false,
+                        "default": 0
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Number of items to return.",
+                        "required": false,
+                        "default": 10
+                    },
+                    {
+                        "name": "startTs",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Resource create time as the start range.",
+                        "required": true
+                    },
+                    {
+                        "name": "endTs",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Resource create time as the end range.",
+                        "required": true
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "type": "string",
+                        "description": "sort by specific field, only support createTime for now",
+                        "required": false,
+                        "default": "createTime"
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "schema": {
+                            "$ref": "#/definitions/MpSortOrder"
+                        },
+                        "description": "Sort based on order of results.",
+                        "required": false,
+                        "default": "ASC"
+                    },
+                    {
+                        "name": "detail",
+                        "in": "query",
+                        "type": "boolean",
+                        "description": "Show summary txns or full detail txns, default is summary",
+                        "required": false,
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/MpTransactionCollection"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/transactions/{transactionId}": {
+            "get": {
+                "tags": [
+                    "MpTransaction"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "transactionId",
+                        "in": "path",
+                        "type": "string",
+                        "description": "The transaction id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/MpTransaction"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "MpApplyPointStatus": {
+            "type": "string",
+            "enum": [
+                "TO_BE_APPLIED",
+                "APPLIED"
+            ]
+        },
+        "MpCheckResult": {
+            "properties": {
+                "isValid": {
+                    "type": "boolean",
+                    "description": "True if credit card number or passcode is valid, false if not.",
+                    "example": false
+                }
+            },
+            "required": [
+                "isValid"
+            ],
+            "description": "The object is for creditCardAuth \u0026 passCode check result"
+        },
+        "MpNullResult": {
+            "description": "The object is just for no content"
+        },
+        "MpPartnerId": {
+            "type": "string",
+            "enum": [
+                "CTCB"
+            ]
+        },
+        "MpPaymentToken": {
+            "properties": {
+                "buyerId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "ccode": {
+                    "type": "string",
+                    "example": ""
+                },
+                "creditCardId": {
+                    "type": "string",
+                    "description": "The credit card id in bastet for payment.",
+                    "example": ""
+                },
+                "expire": {
+                    "type": "string",
+                    "description": "Token expire time.",
+                    "example": ""
+                },
+                "expireDuration": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 0
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Token id.",
+                    "example": ""
+                },
+                "latitude": {
+                    "type": "string",
+                    "example": ""
+                },
+                "longitude": {
+                    "type": "string",
+                    "example": ""
+                },
+                "passCode": {
+                    "type": "string",
+                    "description": "The user's passcode.",
+                    "example": ""
+                },
+                "payType": {
+                    "$ref": "#/definitions/MpPaymentType"
+                },
+                "property": {
+                    "type": "string",
+                    "example": ""
+                },
+                "tokenValue": {
+                    "type": "string",
+                    "description": "Token value.",
+                    "example": ""
+                }
+            },
+            "required": [
+                "id",
+                "tokenValue",
+                "expire",
+                "expireDuration",
+                "creditCardId",
+                "buyerId",
+                "payType",
+                "ccode",
+                "property",
+                "longitude",
+                "latitude",
+                "passCode"
+            ],
+            "description": "Token data."
+        },
+        "MpPaymentType": {
+            "type": "string",
+            "enum": [
+                "CREDIT_CARD_TOKEN"
+            ]
+        },
+        "MpRefundStatus": {
+            "type": "string",
+            "enum": [
+                "INIT",
+                "DONE",
+                "CANCELLED"
+            ]
+        },
+        "MpSortOrder": {
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ]
+        },
+        "MpTransCreditCardSubType": {
+            "type": "string",
+            "enum": [
+                "YAHOO_CO_BRANDED"
+            ]
+        },
+        "MpTransErrorCode": {
+            "type": "string",
+            "enum": [
+                "OK",
+                "CARD_NOT_SUPPORTED",
+                "CARD_EXPIRED",
+                "EXCEEDED_CREDIT_LIMIT",
+                "EXCEEDED_TRANSACTION_LIMIT",
+                "SYSTEM_UNDER_MAINTENANCE"
+            ]
+        },
+        "MpTransStatus": {
+            "type": "string",
+            "enum": [
+                "NOT_PAID",
+                "PAID_OK",
+                "PAY_FAILED",
+                "CANCELLED",
+                "INVALID"
+            ]
+        },
+        "MpTransaction": {
+            "properties": {
+                "amount": {
+                    "type": "string",
+                    "example": ""
+                },
+                "appliedPoints": {
+                    "type": "string",
+                    "example": ""
+                },
+                "applyPointStatus": {
+                    "$ref": "#/definitions/MpApplyPointStatus"
+                },
+                "buyerId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "cancelDate": {
+                    "type": "string",
+                    "example": ""
+                },
+                "ccDisplayName": {
+                    "type": "string",
+                    "example": ""
+                },
+                "ccFirstDigits": {
+                    "type": "string",
+                    "example": ""
+                },
+                "ccLastDigits": {
+                    "type": "string",
+                    "example": ""
+                },
+                "ccSubType": {
+                    "$ref": "#/definitions/MpTransCreditCardSubType"
+                },
+                "ccode": {
+                    "type": "string",
+                    "example": ""
+                },
+                "corpId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "corpTxSeq": {
+                    "type": "string",
+                    "example": ""
+                },
+                "corpTxTime": {
+                    "type": "string",
+                    "example": ""
+                },
+                "createTime": {
+                    "type": "string",
+                    "example": ""
+                },
+                "creditCardId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "currency": {
+                    "type": "string",
+                    "example": ""
+                },
+                "date": {
+                    "type": "string",
+                    "example": ""
+                },
+                "detail": {
+                    "type": "string",
+                    "example": ""
+                },
+                "errorCode": {
+                    "$ref": "#/definitions/MpTransErrorCode"
+                },
+                "id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "latitude": {
+                    "type": "string",
+                    "example": ""
+                },
+                "longitude": {
+                    "type": "string",
+                    "example": ""
+                },
+                "merchantId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "merchantName": {
+                    "type": "string",
+                    "example": ""
+                },
+                "modifyTime": {
+                    "type": "string",
+                    "example": ""
+                },
+                "paidDate": {
+                    "type": "string",
+                    "example": ""
+                },
+                "partnerId": {
+                    "$ref": "#/definitions/MpPartnerId"
+                },
+                "partnerOrderId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "partnerTxSeq": {
+                    "type": "string",
+                    "example": ""
+                },
+                "payType": {
+                    "$ref": "#/definitions/MpPaymentType"
+                },
+                "property": {
+                    "type": "string",
+                    "example": ""
+                },
+                "realAmount": {
+                    "type": "string",
+                    "example": ""
+                },
+                "refundStatus": {
+                    "$ref": "#/definitions/MpRefundStatus"
+                },
+                "status": {
+                    "$ref": "#/definitions/MpTransStatus"
+                },
+                "storeId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "storeName": {
+                    "type": "string",
+                    "example": ""
+                },
+                "summary": {
+                    "type": "string",
+                    "example": ""
+                },
+                "transType": {
+                    "$ref": "#/definitions/MpTransactionType"
+                },
+                "usedPoints": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "id",
+                "transType",
+                "payType",
+                "buyerId",
+                "ccode",
+                "property",
+                "amount",
+                "currency",
+                "realAmount",
+                "status",
+                "date",
+                "partnerId",
+                "partnerTxSeq",
+                "merchantId",
+                "merchantName",
+                "corpId",
+                "corpTxSeq",
+                "corpTxTime",
+                "creditCardId",
+                "ccFirstDigits",
+                "ccLastDigits",
+                "ccSubType",
+                "ccDisplayName",
+                "appliedPoints",
+                "refundStatus",
+                "applyPointStatus",
+                "paidDate",
+                "createTime",
+                "modifyTime",
+                "longitude",
+                "latitude",
+                "errorCode"
+            ]
+        },
+        "MpTransactionCollection": {
+            "properties": {
+                "nextOffset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "If there is more result, the nextOffset can pass to next query, return -1 if no offset anymore",
+                    "example": 0
+                },
+                "totalResults": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Number of transactions returned",
+                    "example": 0
+                },
+                "transactions": {
+                    "type": "array",
+                    "description": "A list of transaction",
+                    "items": {
+                        "$ref": "#/definitions/MpTransaction"
+                    }
+                }
+            },
+            "required": [
+                "transactions",
+                "totalResults",
+                "nextOffset"
+            ]
+        },
+        "MpTransactionType": {
+            "type": "string",
+            "enum": [
+                "PAY",
+                "REFUND"
+            ]
+        },
+        "ParsecErrorBody": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "detail": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ParsecErrorDetail"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        "ParsecErrorDetail": {
+            "properties": {
+                "invalidValue": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        "ParsecResourceError": {
+            "properties": {
+                "error": {
+                    "$ref": "#/definitions/ParsecErrorBody"
+                }
+            },
+            "required": [
+                "error"
+            ]
+        },
+        "ResourceError": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "message"
+            ]
+        }
+    }
+}

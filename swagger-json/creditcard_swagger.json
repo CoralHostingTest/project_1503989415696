@@ -1,0 +1,519 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "The CreditCardAuth API",
+        "version": "1"
+    },
+    "basePath": "/api/mobilePayment/v1",
+    "schemes": [],
+    "paths": {
+        "/creditCard3dAuths": {
+            "post": {
+                "tags": [
+                    "CreditCardAuthResult"
+                ],
+                "summary": "Authorize a card by 3d",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "creditCardAuth",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/MpCreditCardAuth"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/CreditCardAuthResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/creditCard3dAuthsResult": {
+            "post": {
+                "tags": [
+                    "MpNullResult"
+                ],
+                "summary": "3D authorize callback to set result from CCP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "creditCardAuthResult",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/MpCreditCardAuthResult"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/MpNullResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/creditCardAuths": {
+            "delete": {
+                "tags": [
+                    "MpNullResult"
+                ],
+                "summary": "Delete the transactions of user.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "MpCreditCardAuthCollection"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Offset of items of results.",
+                        "required": false
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Number of items to return.",
+                        "required": false
+                    },
+                    {
+                        "name": "sync",
+                        "in": "query",
+                        "type": "boolean",
+                        "description": "Sync with bastet or not, only support if count = 0",
+                        "required": false,
+                        "default": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/MpCreditCardAuthCollection"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "MpNullResult"
+                ],
+                "summary": "Authorize a card by ssl",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "creditCardAuth",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/MpCreditCardAuth"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/creditCardAuths/checkByCardNumber": {
+            "post": {
+                "tags": [
+                    "MpCheckResult"
+                ],
+                "summary": "Check credit card number has set in bastet and ccv verified.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "creditCardAuth",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/MpCreditCardAuth"
+                        },
+                        "description": "The credit card number user input.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/MpCheckResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ParsecResourceError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "CreditCardAuthResult": {
+            "properties": {
+                "accessUrl": {
+                    "type": "string",
+                    "example": ""
+                },
+                "creditCardAuthId": {
+                    "type": "string",
+                    "description": "support 3D, redirect to 3d auth page.",
+                    "example": ""
+                },
+                "retCode": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "not support 3D, will return SSL auth result directly.",
+                    "example": false
+                },
+                "support3d": {
+                    "type": "boolean",
+                    "description": "is the card support 3d?",
+                    "example": false
+                }
+            },
+            "required": [
+                "support3d",
+                "retCode"
+            ]
+        },
+        "MpCheckResult": {
+            "properties": {
+                "isValid": {
+                    "type": "boolean",
+                    "description": "True if credit card number or passcode is valid, false if not.",
+                    "example": false
+                }
+            },
+            "required": [
+                "isValid"
+            ],
+            "description": "The object is for creditCardAuth \u0026 passCode check result"
+        },
+        "MpCreditCardAuth": {
+            "properties": {
+                "cardId": {
+                    "type": "string",
+                    "example": ""
+                },
+                "cardNumber": {
+                    "type": "string",
+                    "example": ""
+                },
+                "cvv2": {
+                    "type": "string",
+                    "example": ""
+                },
+                "passcode": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "cardId",
+                "cvv2",
+                "passcode",
+                "cardNumber"
+            ]
+        },
+        "MpCreditCardAuthCollection": {
+            "properties": {
+                "creditCardAuths": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MpCreditCardAuth"
+                    }
+                },
+                "nextOffset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "If there is more result, the nextOffset can pass to next query, return -1 if no offset anymore",
+                    "example": 0
+                },
+                "totalResults": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Number of creditCardAuth returned",
+                    "example": 0
+                }
+            },
+            "required": [
+                "creditCardAuths",
+                "totalResults",
+                "nextOffset"
+            ]
+        },
+        "MpCreditCardAuthResult": {
+            "properties": {
+                "bill_id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "payment_session_id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "platform_id": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "payment_session_id",
+                "platform_id",
+                "bill_id"
+            ]
+        },
+        "MpNullResult": {
+            "description": "The object is just for no content"
+        },
+        "ParsecErrorBody": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "detail": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ParsecErrorDetail"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        "ParsecErrorDetail": {
+            "properties": {
+                "invalidValue": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        "ParsecResourceError": {
+            "properties": {
+                "error": {
+                    "$ref": "#/definitions/ParsecErrorBody"
+                }
+            },
+            "required": [
+                "error"
+            ]
+        },
+        "ResourceError": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "message"
+            ]
+        }
+    }
+}

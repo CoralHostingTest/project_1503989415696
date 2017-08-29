@@ -1,0 +1,146 @@
+namespace com.yahoo.ecosystem.mobile_payment.parsec
+name CreditCardAuth
+version 1
+base "/mobilePayment"
+
+include "ParsecResourceError.rdli"
+include "common.rdli"
+
+type MpCreditCardAuth struct {
+    String cardId (x_not_null="groups=create");
+    String cvv2 (x_not_null="groups=create", x_pattern="regexp=\"^[0-9]{3,4}$\", groups=create")
+    String passcode (x_pattern="regexp=\"^[0-9]{4}$\", groups=create")
+    String cardNumber (x_not_null="groups=check_by_card_number", x_pattern="regexp=\"^[0-9]{15,16}$\", groups=check_by_card_number")
+}
+
+type CreditCardAuthResult struct {
+    // is the card support 3d?
+    Bool support3d;
+
+    int32 retCode;
+
+    // not support 3D, will return SSL auth result directly.
+    Bool success (optional);
+
+    // support 3D, redirect to 3d auth page.
+    String creditCardAuthId (optional);
+    String accessUrl (optional);
+}
+
+type MpCreditCardAuthResult struct {
+    String payment_session_id;
+    String platform_id;
+    String bill_id (x_not_null="groups=result");
+}
+
+type MpCreditCardAuthCollection struct {
+    Array<MpCreditCardAuth> creditCardAuths;
+
+    // Number of creditCardAuth returned
+    int32 totalResults;
+
+    // If there is more result, the nextOffset can pass to next query, return -1 if no offset anymore
+    int32 nextOffset;
+}
+
+// Authorize a card by ssl
+resource MpNullResult POST "/creditCardAuths" (name=postCreditCardAuth) {
+    MpCreditCardAuth creditCardAuth (x_must_validate="create")
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Authorize a card by 3d
+resource CreditCardAuthResult POST "/creditCard3dAuths" (name=postCreditCardAuthV2) {
+    MpCreditCardAuth creditCardAuth (x_must_validate="create")
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// 3D authorize callback to set result from CCP
+resource MpNullResult POST "/creditCard3dAuthsResult" (name=setCreditCardAuth3dResult) {
+    MpCreditCardAuthResult creditCardAuthResult (x_must_validate="result")
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+resource MpCreditCardAuthCollection GET "/creditCardAuths?offset={offset}&count={count}&sync={sync}" (name=getCreditCardAuths) {
+
+    // Offset of items of results.
+    int32 offset        (optional, x_min="0")
+
+    // Number of items to return.
+    int32 count         (optional, x_min="0", x_max="100")
+
+    // Sync with bastet or not, only support if count = 0
+    Bool sync           (optional, default=false)
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Check credit card number has set in bastet and ccv verified.
+resource MpCheckResult POST "/creditCardAuths/checkByCardNumber" (name=checkCreditCardAuthByCardNumber) {
+    // The credit card number user input.
+    MpCreditCardAuth creditCardAuth (x_must_validate="check_by_card_number");
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Delete the transactions of user.
+resource MpNullResult DELETE "/creditCardAuths" (name=deleteCreditCardAuths) {
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}

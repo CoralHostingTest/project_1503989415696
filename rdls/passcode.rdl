@@ -1,0 +1,119 @@
+namespace com.yahoo.ecosystem.mobile_payment.parsec
+name Passcode
+version 1
+base "/mobilePayment"
+
+include "ParsecResourceError.rdli"
+include "common.rdli"
+
+// Support reset by old passcode or card number.
+type MpResetType Enum {
+
+    // indicate reset by passcode.
+    BY_PASSCODE
+
+    // indicate reset by card number.
+    BY_CARD_NUMBER
+}
+
+// The reset data for passcode.
+type MpResetData Struct {
+    // indicate reset by "old passcode" or "card number".
+    MpResetType resetType (x_not_null)
+
+    // required if ResetType is BY_CARD_NUMBER.
+    String cardNumber (x_pattern="regexp=\"^[0-9]{15,16}$\"")
+
+    // required if ResetType is BY_PASSCODE.
+    String oldPasscode (x_pattern="regexp=\"^[0-9]{4}$\"")
+
+    // The new passcode for reset.
+    String newPasscode (x_not_null, x_pattern="regexp=\"^[0-9]{4}$\"")
+}
+
+// passcode
+type MpPasscode Struct {
+    // passcode string.
+    String passcode (x_required, x_not_null, x_pattern="regexp=\"^[0-9]{4}$\"");
+}
+
+// The API give user setup 1st passcode
+resource MpNullResult POST "/passcodes" (name=postPasscode) {
+    // user enter the passcode
+    MpPasscode passcode (x_required, x_not_null, x_must_validate);
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR; // The system have error.
+        ParsecResourceError BAD_REQUEST;           // The user given wrong format of passcode or passcode have already setup.
+        ParsecResourceError UNAUTHORIZED;          // The user not login.
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Reset passcode by given old passcode or authorized card number
+resource MpNullResult PUT "/passcodes" (name=resetPasscode) {
+    // Reset data user given.
+    MpResetData resetData (x_required, x_not_null, x_must_validate)
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+
+    // indicate reset passcode success
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Given passcode to check match user's passcode or not
+resource MpCheckResult POST "/passcodes/check" (name=checkPasscode) {
+    // The passcode user given
+    MpPasscode passcode (x_required, x_not_null, x_must_validate);
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+    expected OK;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
+// Check the user have set passcode or not.
+resource MpNullResult GET "/passcodes" (name=getPasscode) {
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+        ParsecResourceError NOT_FOUND;
+    }
+}
+
+// Check the user and its passcode.
+resource MpNullResult DELETE "/passcodes" (name=deletePasscode) {
+
+    // authenticate by ytcookie & wssid
+    authenticate;
+    expected NO_CONTENT;
+    exceptions {
+        ParsecResourceError INTERNAL_SERVER_ERROR;
+        ParsecResourceError BAD_REQUEST;
+        ParsecResourceError UNAUTHORIZED;
+        ParsecResourceError FORBIDDEN;
+    }
+}
+
